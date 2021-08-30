@@ -1,0 +1,39 @@
+div audio {
+    width: 100%;
+    border-radius: 0;
+    margin: 10px 0;
+}
+
+.table tr th {
+    font-size: 16px;
+}
+
+.table tr td {
+    font-size: 18px;
+}
+
+.table tr button {
+    font-size: 16px;
+    padding: 2px;
+}
+
+svg {
+    width: 40px;
+    height: 40px;
+    font-size: 20px important!;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .table tr th {
+        font-size: 10px;
+    }
+    .table tr td {
+        font-size: 10px;
+        padding: 10px 0;
+    }
+    .table tr button {
+        font-size: 11px;
+        padding: 2px;
+    }
+}
