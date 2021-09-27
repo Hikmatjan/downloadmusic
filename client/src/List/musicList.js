@@ -41,7 +41,7 @@ const MusicList = (props) => {
                             <div key={index}>
                                 <h6>{element.fileName}</h6>
                                 <audio controls id="audio" onEnded={() => ended(index)} onPlaying={() => audioClick(index)}>
-                                    <source src={`http://localhost:8000/${element.filePath}`} type={element.fileType} />
+                                    <source src={`https://uploadmusic12345.herokuapp.com/${element.filePath}`} type={element.fileType} />
                                     Your browser does not support the audio element.
                                 </audio>
                             </div>

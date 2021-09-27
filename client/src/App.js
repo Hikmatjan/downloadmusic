@@ -29,7 +29,7 @@ function App() {
   }
 
   const getSingleFiles = async () => {
-    const { data } = await axios.get('http://localhost:8000/getAllSingleFiles');
+    const { data } = await axios.get('https://uploadmusic12345.herokuapp.com/getAllSingleFiles');
     setData(data);
   }
 
@@ -41,7 +41,7 @@ function App() {
         const formData = new FormData();
         formData.append('file', singleFile);
 
-        const { data } = await axios.post('http://localhost:8000/singleFile', formData, singleFileOptions);
+        const { data } = await axios.post('https://uploadmusic12345.herokuapp.com/singleFile', formData, singleFileOptions);
 
         setText({ color: 'green', data: data });
         setSingleFile('');
@@ -62,14 +62,14 @@ function App() {
   }, []);
 
   const deleteFile = async (id) => {
-    await axios.delete(`http://localhost:8000/deleteSingleFile/${id}`);
+    await axios.delete(`https://uploadmusic12345.herokuapp.com/deleteSingleFile/${id}`);
     getSingleFiles();
   }
 
 
   return (
     <BrowserRouter>
-      <Route path={`/dashboard6356`}>
+      <Route path={`https://uploadmusic12345.herokuapp.com/dashboard6356`}>
         <div className="container">
           <div className="row">
             <div className="col-md-6 m-auto">
