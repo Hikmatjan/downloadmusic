@@ -6,7 +6,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import MusicList from './List/musicList';
 import './App.css';
 
-const url = "http://localhost:8000/api/";
+// const url = "https://uploadmusic12345.herokuapp.com";
 
 function App() {
   const [singleFile, setSingleFile] = useState('');
@@ -29,7 +29,7 @@ function App() {
   }
 
   const getSingleFiles = async () => {
-    const { data } = await axios.get(url + 'getAllSingleFiles');
+    const { data } = await axios.get('http://localhost:8000/getAllSingleFiles');
     setData(data);
   }
 
@@ -41,7 +41,7 @@ function App() {
         const formData = new FormData();
         formData.append('file', singleFile);
 
-        const { data } = await axios.post(url + 'singleFile', formData, singleFileOptions);
+        const { data } = await axios.post('http://localhost:8000/singleFile', formData, singleFileOptions);
 
         setText({ color: 'green', data: data });
         setSingleFile('');
@@ -62,14 +62,14 @@ function App() {
   }, []);
 
   const deleteFile = async (id) => {
-    await axios.delete(url + `deleteSingleFile/${id}`);
+    await axios.delete(`http://localhost:8000/deleteSingleFile/${id}`);
     getSingleFiles();
   }
 
 
   return (
     <BrowserRouter>
-      <Route path="/dashboard6356">
+      <Route path={`/dashboard6356`}>
         <div className="container">
           <div className="row">
             <div className="col-md-6 m-auto">
@@ -133,8 +133,8 @@ function App() {
           </div>
         </div>
       </Route>
-      <Route path="/" exact>
-        <MusicList url={url} data={data} getSingleFiles={getSingleFiles} />
+      <Route path='/' exact>
+        <MusicList data={data} getSingleFiles={getSingleFiles} />
       </Route>
     </BrowserRouter>
   );
